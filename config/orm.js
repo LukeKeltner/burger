@@ -4,7 +4,8 @@ var orm =
 {
 	selectAll: function(table, cb)
 	{
-		connection.query("SELECT * FROM ?", [table], function(err, result)
+		var query = "SELECT * FROM "+table;
+		connection.query(query, function(err, result)
 		{
 			if(err){throw err};
 			cb(result);

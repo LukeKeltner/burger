@@ -5,6 +5,10 @@ var router = express.Router();
 
 router.get("/", function(req, res)
 {
+	burger.all(function(result)
+	{
+		console.log(result[0].devoured)
+	})
 	res.render("index",{})
 })
 
