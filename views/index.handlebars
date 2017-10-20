@@ -6,10 +6,22 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-6 text-center">
-			<h1>HEY THERE!</h1>
+		<div class="col-md-6">
+			<ul class="list-group">
+				{{#each burgersToEat}}
+					{{> readyToEat }}
+					<li class="list-group-item list-group-item-default clearfix">
+						{{burger_name}}
+						<button type="button" class="btn btn-default devour" id="{{id}}">Devour</button>
+					</li>
+					
+				{{/each}}
+			</ul>
 		</div>
 		<div class="col-md-6 text-center">
+			<ul class="list-group">
+
+			</ul>
 			<h1>HEY THERE!</h1>
 		</div>
 	</div>
