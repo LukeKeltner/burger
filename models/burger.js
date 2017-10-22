@@ -8,6 +8,14 @@ var burger =
 		{
 			cb(result);
 		});
+	},
+
+	update: function(id, cb)
+	{
+		orm.updateOne("burgers", id, function(result)
+		{
+			cb(result)
+		});
 	}
 };
 

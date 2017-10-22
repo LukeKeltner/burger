@@ -1,4 +1,20 @@
 $(document).on("click", ".devour", function(event)
 {
-	console.log($(this).attr("id"))
-})
+	var ID = $(this).attr("id");
+	console.log(ID)
+	var id =
+	{
+		id: ID
+	};
+
+	$.ajax(
+	{
+		url: '/delete/'+id,
+		data: id,
+		type: 'put'
+	}).done(function(result)
+	{
+		window.location.reload()
+	});
+
+});

@@ -33,4 +33,13 @@ router.get("/", function(req, res)
 	});
 });
 
+router.put('/delete/:id', function(req, res)
+{
+	var id = req.body.id;
+	burger.update(id, function(result)
+	{
+		res.send("");
+	})
+})
+
 module.exports = router;

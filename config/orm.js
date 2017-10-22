@@ -14,16 +14,18 @@ var orm =
 
 	insertOne: function(table, burger_name, cb)
 	{
-		connection.query("INSERT INTO ?(burger_name, devoured) VALUES(?,?)", [table, burger_name, false], function(err, result)
+		var query = 'INSERT INTO '+table+'(burger_name, devoured) VALUES('+burger_name+', FALSE)'
+		connection.query(query, function(err, result)
 		{
 			if (err){throw err};
 			cb(result);
 		});
 	},
 
-	updateOne: function(table, id, devoured, cb)
+	updateOne: function(table, id, cb)
 	{
-		connection.query("UPDATE ? SET devoured = ? WHERE id = ?", [table, id, devoured], function(err, result)
+		var query = 'UPDATE '+table+' SET devoured = TRUE WHERE id = '+id;
+		connection.query(query, function(err, result)
 		{
 			if(err){throw err};
 			cb(result);

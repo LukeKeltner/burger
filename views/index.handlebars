@@ -10,9 +10,9 @@
 			<ul class="list-group">
 				{{#each burgersToEat}}
 					{{> readyToEat }}
-					<li class="list-group-item list-group-item-default clearfix">
+					<li class="list-group-item list-group-item-action">
 						{{burger_name}}
-						<button type="button" class="btn btn-default devour" id="{{id}}">Devour</button>
+						<span class="pull-right"><button type="button" class="btn btn-default devour pull-right" id="{{id}}">Devour</button></span>
 					</li>
 					
 				{{/each}}
@@ -20,9 +20,14 @@
 		</div>
 		<div class="col-md-6 text-center">
 			<ul class="list-group">
-
+				{{#each burgersEaten}}
+					{{> readyToEat }}
+					<li class="list-group-item list-group-item-dark">
+						{{burger_name}}
+					</li>
+					
+				{{/each}}
 			</ul>
-			<h1>HEY THERE!</h1>
 		</div>
 	</div>
 
