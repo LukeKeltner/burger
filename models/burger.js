@@ -10,6 +10,14 @@ var burger =
 		});
 	},
 
+	insert: function(name, cb)
+	{
+		orm.insertOne("burgers", name, function(result)
+		{
+			cb(result)
+		});
+	},
+
 	update: function(id, cb)
 	{
 		orm.updateOne("burgers", id, function(result)

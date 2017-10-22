@@ -33,10 +33,20 @@ router.get("/", function(req, res)
 	});
 });
 
-router.put('/delete/:id', function(req, res)
+router.put('/update/:id', function(req, res)
 {
 	var id = req.body.id;
 	burger.update(id, function(result)
+	{
+		res.send("");
+	})
+})
+
+router.post('/addBurger', function(req, res)
+{
+	var name = req.body.burger;
+	console.log(name);
+	burger.insert(name, function(result)
 	{
 		res.send("");
 	})
