@@ -1,12 +1,11 @@
 var mysql = require("mysql");
 var connection = mysql.createConnection(
 {
-	host: "localhost",
-	port: 3306,
+	host: "otmaa16c1i9nwrek.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 
-	user: "root",
-	password: "Lukkehoday1",
-	database: "burgers_db"
+	user: "aqlmqbpyrbwx9fud",
+	password: "aiexiw6aq63h68tm",
+	database: "bqzftpqzzcha0u20"
 });
 
 if (process.env.JawsDB_URL)
@@ -19,6 +18,8 @@ else
 	connection = mysql.createConnection(
 	{
 		host: "localhost",
+		port: 3306,
+
 		user: 'root',
 		password: 'Lukkehoday1',
 		database: "burgers_db"
