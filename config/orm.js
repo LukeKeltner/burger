@@ -5,7 +5,7 @@ var orm =
 	selectAll: function(table, cb)
 	{
 		var query = "SELECT * FROM "+table;
-		connection.query(query, function(err, result)
+		var thing = connection.query(query, function(err, result)
 		{
 			if(err){throw err};
 			cb(result);
@@ -14,9 +14,7 @@ var orm =
 
 	insertOne: function(table, burger_name, cb)
 	{
-		var query = 'INSERT INTO '+table+'(burger_name, devoured) VALUES ("'+burger_name+'", false);'
-		console.log(query)
-		connection.query(query, function(err, result)
+		connection.query('INSERT INTO '+table+'(burger_name, devoured) VALUES (?, false);', [burger_name], function(err, result)
 		{
 			if (err){throw err};
 			cb(result);
@@ -25,8 +23,7 @@ var orm =
 
 	updateOne: function(table, id, cb)
 	{
-		var query = 'UPDATE '+table+' SET devoured = TRUE WHERE id = '+id;
-		connection.query(query, function(err, result)
+		connection.query('UPDATE '+table+' SET devoured = TRUE WHERE id = ?', [id], function(err, result)
 		{
 			if(err){throw err};
 			cb(result);
